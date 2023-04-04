@@ -50,7 +50,7 @@ $(document).ready(function(){
         });
     });
     
-    /* nav open */
+    /* nav open */ 
     const menu = document.querySelector("nav");
     
     let menuEffect = gsap.timeline({
@@ -62,7 +62,7 @@ $(document).ready(function(){
             .to(".contact",{y:94},"<")
     
     menu.addEventListener("mouseenter",()=>{ menuEffect.play() })
-    menu.addEventListener("mouseleave",()=>{menuEffect.reverse()})     
+    menu.addEventListener("mouseleave",()=>{menuEffect.reverse()})    
 
     /* nav scroll */
     $("nav a").on("click",function(){
@@ -122,7 +122,7 @@ $(document).ready(function(){
     /* home scroll txt roof */
     function loof(){
 		$(".scroll-txt-wrap").animate({
-			left:"-150px"
+			left:"-160px"
 			},{
 			complete:function(){
 				var $clone = $(".scroll-txt-wrap p").first().clone();
@@ -173,7 +173,7 @@ $(document).ready(function(){
     },"0.5")
 
     /* about id-card effect */
-    gsap.from(".frame",{
+    gsap.from(".idcard",{
         scrollTrigger:{
             trigger:"#about",
             markers:false,
