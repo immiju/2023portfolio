@@ -65,7 +65,7 @@ a{
     z-index: 500;
 }
 
-/*------------------------------ .roading ------------------------------*/
+/*------------------------------ .loading ------------------------------*/
 .loading{
     justify-content:center;
     align-items:center;
@@ -84,7 +84,7 @@ a{
     top:calc(50% - 60px);
     left:calc(50% - 90px);
 }
-.intro > #logo-svg > circle{
+.intro > .logo-svg > circle{
     stroke:#393E46;
     stroke-width:2px;
     fill:none;
@@ -101,7 +101,7 @@ a{
     font-size:10px;
     margin-right:6px;
 }
-.intro-txt > .white{
+.intro-txt > span:nth-child(2){
     color:#fff;
 }
 
@@ -113,9 +113,8 @@ header{
     top:0;
     left:0;
     z-index:300;
-    background-color:none;
 }
-.header.on{
+header.on{
     background-color:#eee;
 }
 header > .inner-wrap{
@@ -130,20 +129,20 @@ header > .inner-wrap{
     width:60px;
     height:40px;
 }
-.logo > #logo-svg > circle{
+.logo > .logo-svg > circle{
     stroke:#393E46;
     stroke-width:5.5px;
     fill:none;
     transition:all 0.3s;
 }
-.logo > #logo-svg > path{
+.logo > .logo-svg > path{
     fill:#393E46;
     transition:all 0.3s;
 }
-.logo > #logo-svg.on > circle{
+.logo > .logo-svg.on > circle{
     stroke:#eee;
 }
-.logo > #logo-svg.on > path{
+.logo > .logo-svg.on > path{
     fill:#eee;
 }
 nav{
@@ -151,13 +150,13 @@ nav{
     height:40px;
     text-align:center;
 }
-#gnb{
+nav ul{
     width:120px;
     height:40px;
     margin:auto;
     position:relative;
 }
-#gnb > li{
+nav li{
     width:100%;
     height:40px;
     margin-bottom:8px;
@@ -169,17 +168,17 @@ nav{
     border-radius:50px;
     transition:background-color 0.5s;
 }
-#gnb > li:hover{
-    background-color:#393E46;
-}
-#gnb > li.on{
+nav li.on{
     background-color:#393E46;
     border:1px solid #eee;
 }
-#gnb > li.on:hover{
+nav li:hover{
+    background-color:#393E46;
+}
+nav li.on:hover{
     background-color:#eee;
 }
-#gnb > li > a{
+nav li > a{
     font-size:1rem;
     font-weight:400;
     color:#393E46;
@@ -187,13 +186,13 @@ nav{
     padding:15px;
     transition:color 0.5s;
 }
-#gnb > li > a:hover{
+nav li.on > a{
     color:#eee;
 }
-#gnb > li.on > a{
+nav li > a:hover{
     color:#eee;
 }
-#gnb > li.on:hover > a{
+nav li.on:hover > a{
     color:#393E46;
 }
 .projects{
@@ -204,15 +203,14 @@ nav{
 }
 
 /*------------------------------ home ------------------------------*/
-#home{
+section.home{
     width:100vw;
     height:100vh;
-    position:relative;
 }
-.home-title{
+.home-txt{
     width:738px;
     padding:0 10px;
-    position:absolute;
+    position:relative;
     left:50%;
     top:50%;
     transform:translate(-50%, -50%);
@@ -220,29 +218,24 @@ nav{
     font-family: 'indivisible', sans-serif;
     text-align:left;
 }
-.home-title > span{
+.home-txt > span{
     display:block;
     overflow:hidden;
 }
-.row-2nd{
+.home-txt > span:nth-child(even) > p{
     display:flex;
     justify-content:space-between;
 }
-.row-4th{
-    display:flex;
-    justify-content:space-between;
-}
-.home-title > span > span{
-    display:flex;
+.home-txt p{
     color:#393E46;
     font-size:5rem;
     font-weight:900;
     transition:font-size 0.3s;
 }
-.home-title .orange{
+.home-txt .orange{
     color:#EB6440;
 }
-.home-title .blue{
+.home-txt .blue{
     color:#00ADB5;
 }
 .scroll{
@@ -255,7 +248,7 @@ nav{
     justify-content:flex-start;
     align-items: center;
 }
-#arrow{
+.arrow{
     width:40px;
     stroke:#393E46;
     stroke-width:4px;
@@ -276,7 +269,7 @@ nav{
     display:flex;
     justify-content: space-between;
 }
-.scroll-txt-wrap > p{
+.scroll-txt-wrap p{
     width:150px;
     color:#393E46;
     font-size:1.2rem;
@@ -284,49 +277,45 @@ nav{
     line-height:37px;
 }
 @media all and (max-width:800px){
-    .home-title{
+    .home-txt{
         width:522px;
     }
-    .home-title > span > span{
+    .home-txt p{
         font-size:3.5rem;
     }
 }
 @media all and (max-width:600px){
-    .home-title{
+    .home-txt{
         width:364px;
     }
-    .home-title > span > span{
+    .home-txt p{
         font-size:2.4rem;
     }
 }
 
-/*------------------------------ #projects ------------------------------*/
-#projects{
-    padding-top:2vw;
-    margin:80px 0;
+/*------------------------------ main.projects ------------------------------*/
+main{
+    padding:0 20px;
+    margin:150px 0;
 }
-#projects > .inner-wrap{
-    width:95%;
-    margin:auto;
-}
-.project-content{
+main > section{
     width:100%;
     margin-bottom:80px;
 }
-.project-title{
+main h2{
     font-size:4rem;
     font-weight:700;
     color:#393E46;
     margin-top:50px;
     margin-bottom:10px;
 }
-.project-img{
+.img-box{
     width:100%;
     height:65vh;
     overflow:hidden;
     position:relative;
 }
-.project-img > a{
+.img-box a{
     color:#eee;
 }
 .img-cover{
@@ -340,7 +329,7 @@ nav{
     transition:all 0.5s;
     z-index:100;
 }
-.img-cover > span{
+.img-cover p{
     font-size:3rem;
     font-weight:500;
     color:#eee;
@@ -352,7 +341,7 @@ nav{
 .img-cover:hover{
     opacity:1;    
 }
-.project-img > a > .img{
+.img{
     width:100%;
     height:100%;
     position:absolute;
@@ -360,66 +349,74 @@ nav{
     top:0;
     z-index:90;
 }
-.project-content:nth-of-type(1) .img{
+main > section:nth-child(1) .img{
     background:url("../img/mockup_cos.jpg") no-repeat center center;
     background-size:cover;
 }
-.project-content:nth-of-type(2) .img{
+main > section:nth-child(2) .img{
     background:url("../img/mockup_hibrow.jpg") no-repeat center center;
     background-size:cover;
 }
-.project-content:nth-of-type(3) .img{
+main > section:nth-child(3) .img{
     background:url("../img/mockup_nicecatch.jpg") no-repeat center center;
     background-size:cover;
 }
-.project-content:nth-of-type(4) .img{
+main > section:nth-child(4) .img{
     background:url("../img/mockup_wayo.jpg") no-repeat center center;
     background-size:cover;
 }
-.project-content:nth-of-type(5) .img{
+main > section:nth-child(5) .img{
     background:url("../img/mockup_daangn.jpg") no-repeat center center;
     background-size:cover;
 }
-.caption-left{
+.caption-wrap{
+    width:100%;
+    height:135px;
+    margin-top:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.caption-01 p{
     line-height:1.5;
-    margin:15px 0 13px;
     font-size:18px;
     font-weight:400;
 }
-.project-tag > span{
-    display:inline-block;
+.caption-02 .tag{
+    display:flex;
+    flex-wrap:wrap;
+    align-content:space-between;
+    padding-top:2px;
+}
+.caption-02 .tag span{
     border:1px solid #393E46;
     border-radius:50px;
-    margin-right:5px;
-    margin-bottom:8px;
     padding:7px 13px;
+    margin:0 5px 7px 0;
     font-size:14px;
     font-weight:400;
 }
-.more-btn{
-    display:inline-block;
-    padding:5px 0;
+.caption-02 .tag span:last-child{
+    margin-right:0;
 }
-.more-btn > .btn{
-    display:inline-block;
+.caption-02 button{
     padding:7px 13px;
-    margin-right:5px;
     background:#393E46;
     border:1px solid #393E46;
     border-radius:50px;
     transition:all 0.5s;
 }
-.more-btn > .btn:hover{
-    background:#eee;
-    border:1px solid #393E46;
-}
-.more-btn > .btn > a{
+.caption-02 button a{
     color:#eee;
     font-size:14px;
     padding:5px 10px;
     transition:all 0.5s;
 }
-.more-btn > .btn:hover > a{
+.caption-02 button:hover{
+    background:#eee;
+    border:1px solid #393E46;
+}
+.caption-02 button:hover > a{
     color:#393E46;
 }
 @media all and (max-width:500px){
@@ -427,145 +424,96 @@ nav{
         display:none;
     }
 }
-@media all and (max-width:600px){
-    .project-img{
+@media all and (max-width:650px){
+    .img-box{
         height:38vh;
     }
-    .img-cover > span{
+    .img-cover p{
         font-size:2.5rem;
     }
-}
-@media all and (min-width:1350px){
-    .project-caption{
-        display:flex;
-        justify-content:space-between;
+    .caption-01 p{
+        display:inline;
     }
-    .caption-right{
+}
+@media all and (min-width:1300px){
+    .caption-wrap{
+        flex-flow:row;
+    }
+    .caption-02{
         text-align:right;
-        margin:15px 0 13px;
+    }
+    .caption-02 .tag span{
+        margin-bottom:10px;
     }
 }
 
-/*------------------------------ #ending ------------------------------*/
-#ending{
+/*------------------------------ .ending ------------------------------*/
+.ending{
     width:100vw;
     height:110vh;
     background:#222831;
     color:#eee;
-    position:relative;
+    display:flex;
+    flex-flow:column wrap;
+    justify-content: space-evenly;
+    text-align:center;
 }
-.ending-bg-txt{
-    width:100%;
-    height:100%;
+.ending > p{
+    opacity:0.2;
     font-family:'indivisible';
     font-weight:800;
     font-size:3rem;
-    opacity:0.2;
-    position:absolute;
-    left:0;
-    top:0;
 }
-.bg-txt-01{
-    position:absolute;
-    left:50%;
-    top:11vh;
-    transform:translateX(-50%);
-}
-.bg-txt-02{
-    position:absolute;
-    left:50%;
-    top:22vh;
-    transform:translateX(-50%);
-}
-.bg-txt-03{
-    position:absolute;
-    left:50%;
-    top:33vh;
-    transform:translateX(-50%);
-}
-.bg-txt-04{
-    position:absolute;
-    left:50%;
-    top:68vh;
-    transform:translateX(-50%);
-}
-.bg-txt-05{
-    position:absolute;
-    left:50%;
-    top:79vh;
-    transform:translateX(-50%);
-}
-.ending-txt{
-    width:60vw;
-    text-align:center;
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%, -50%);
-}
-.ending-txt > p{
+.ending-txt p{
     font-size:2rem;
     font-weight:500;
     line-height:1.4;
     margin-bottom:3vw;
 }
-#ending > p{
-    width:80%;
+.ending-txt strong{
+    color:aquamarine;
+    font-weight:600;
+}
+.ending small{
+    padding:0 20px;
     font-size:1rem;
     font-weight:500;
     line-height:1.5;
-    text-align:center;
-    position:absolute;
-    left:50%;
-    bottom:7%;
-    transform:translateX(-50%);
+    opacity:1;
 }
 @media all and (max-width:1200px){
-    .ending-txt{
-        width:80vw;
-    }
-    .ending-txt > p{
+    .ending-txt p{
         font-size:1.8rem;
     }
 }
 @media all and (max-width:800px){
-    .ending-txt{
-        width:85vw;
-    }
-    .ending-txt > p{
+    .ending-txt p{
         font-size:1.5rem;
     }
 }
 @media all and (max-width:600px){
-    .ending-txt{
-        width:94vw;
-    }
-    .ending-txt > p{
+    .ending-txt p{
         font-size:1rem;
         line-height:1.6;
     }
 }
 @media all and (max-width:400px){
-    .ending-txt{
-        width:99vw;
-    }
-    .ending-txt > p{
+    .ending-txt p{
         font-size:1rem;
     }
-    #ending > p{
-        width:80%;
+    .ending small{
         font-size:0.9rem;
     }
 }
 
-/*------------------------------ #about ------------------------------*/
+/*------------------------------ .about ------------------------------*/
 #about{
     width:100vw;
     height:92vh;
     position:relative;
     margin-top:0.2vw;
 }
-.frame{
+.idcard{
     width:530px;
     background-color:#fff;
     border-radius:1rem;
@@ -577,7 +525,7 @@ nav{
     transform:translate(-50%, -50%);
     transition:all 0.2s;
 }
-.frame > .title{
+.idcard > h3{
     display:block;
     width:100%;
     padding:15px 0;
@@ -590,7 +538,7 @@ nav{
     letter-spacing:0.1rem;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
-.frame > .numbers{
+.code{
     width:100%;
     margin-top:13px;
     padding:0 15px;
@@ -598,11 +546,11 @@ nav{
     justify-content:space-between;
     align-items:center;
 }
-.frame > .numbers > li{
+.code li{
     width:20%;
     font-size:0.9rem;
 }
-.frame > .id{
+.id{
     width:100%;
     padding:15px 20px 17px;
     display:flex;
@@ -624,7 +572,7 @@ nav{
     width:57%;
     height:210px;
 }
-.id-title{
+.id-txt p:first-child{
     padding:10px 7px;
     margin-bottom:18px;
     border-radius:0.4rem;
@@ -634,44 +582,45 @@ nav{
     font-size:1.5rem;
     font-weight:900;
     letter-spacing:0.1rem;
+    text-align:center;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
-.id-txt > p{
+.id-txt p:nth-child(2){
     text-align:left;
     font-size:1.5rem;
     font-weight:500;
     margin-bottom:14px;
 }
-.id-link{
+.id-txt .link{
     text-align:left;
 }
-.id-link > li{
+.id-txt .link li{
     margin-bottom:11px;
 }
-.id-link > li > a{
+.id-txt .link a{
     font-size:1.1rem;
     font-weight:500;
     color:#000;
 }
-.id-link > li > a:hover{
+.id-txt .link a:hover{
     opacity:0.5;
 }
 @media all and (max-width:600px){
-    .frame{
+    .idcard{
         width:350px;
     }
-    .frame > .title{
+    .idcard > h3{
         padding:8px 0;
         font-size:1.9rem;
     }
-    .frame > .numbers{
+    .code{
         margin-top:7px;
         padding:0 8px;
     }
-    .frame > .numbers > li{
+    .code li{
         font-size:0.5rem;
     }
-    .frame > .id{
+    .id{
         padding:10px 15px 15px;
     }
     .emoji{
@@ -682,20 +631,20 @@ nav{
         width:57%;
         height:130px;
     }
-    .id-title{
+    .id-txt p:first-child{
         padding:5px;
         margin-bottom:9px;
         font-size:0.8rem;
         font-weight:900;
     }
-    .id-txt > p{
+    .id-txt p:nth-child(2){
         font-size:1rem;
         margin-bottom:5px;
     }
-    .id-link > li{
+    .id-txt .link li{
         margin-bottom:2.5px;
     }
-    .id-link > li > a{
+    .id-txt .link a{
         font-size:0.7rem;
         font-weight:500;
         padding-top:-3px;
@@ -706,21 +655,18 @@ nav{
 footer{
     width:100vw;
     height:9vh;
-}
-footer > .inner-wrap{
-    width:95%;
-    margin:auto;
-    padding:0 1%;
+    padding:10px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
-.contact-title > span{
+.contact h3{
     font-size:1.2rem;
     font-weight:500;
     color:#393E46;
+    margin-bottom:3px;
 }
-#point{
+.point{
     width:20px;
     height:20px;
     stroke:#393E46;
@@ -731,26 +677,24 @@ footer > .inner-wrap{
     margin-bottom:-3px;
     margin-left:3px;
 }
-.mail{
-    display:block;
-    margin-top:7px;
+address{
+    font-style:normal;
 }
-.mail > a{
+address a{
     font-size:1rem;
     font-weight:400;
     color:#393E46;
 }
-.footer-link > span{
-    display:block;
-    text-align:right;
+footer .link{
     margin:15px 0;
+    text-align:right;
 }
-.footer-link > span > a{
+footer .link a{
     font-size:1rem;
     font-weight:400;
     color:#222831;
     padding:15px 0;
 }
-.footer-link > span > a:hover{
+footer .link a:hover{
     opacity:0.5;
 }

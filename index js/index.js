@@ -2,7 +2,7 @@ $(document).ready(function(){
     
     /* mouse Effect */
     var cursor = document.querySelector(".cursor"),
-        cursorScale = document.querySelectorAll(".cursor-scale, .more-btn, .img-cover"),
+        cursorScale = document.querySelectorAll(".cursor-scale, .caption-btn, .img-cover"),
         mouseX = 0,
         mouseY = 0
 
@@ -20,7 +20,7 @@ $(document).ready(function(){
     });
 
     window.addEventListener("mousemove",function (e){
-        mouseX = e.clientX;
+        mouseX = e.clientX
         mouseY = e.clientY
     })
 
@@ -35,8 +35,11 @@ $(document).ready(function(){
     
     /* Loading Page */
     let loadingTl = gsap.timeline()
-        loadingTl.from("#logo-svg",{duration:1,opacity:0})
-        loadingTl.from(".intro-txt > span",{opacity:0,stagger:{each:0.5,from:"first"}},"-=0.5")
+        loadingTl.from(".logo-svg",{duration:1,opacity:0})
+        loadingTl.from(".intro-txt > span",{
+            opacity:0,
+            stagger:{each:0.5,from:"first"}
+            },"-=0.5")
         loadingTl.to(".loading",{opacity:0},"+=0.5")
         loadingTl.to(".loading",{display:"none"})
 
@@ -47,7 +50,7 @@ $(document).ready(function(){
         });
     });
     
-    /* gnb open */
+    /* nav open */
     const menu = document.querySelector("nav");
     
     let menuEffect = gsap.timeline({
@@ -61,9 +64,9 @@ $(document).ready(function(){
     menu.addEventListener("mouseenter",()=>{ menuEffect.play() })
     menu.addEventListener("mouseleave",()=>{menuEffect.reverse()})     
 
-    /* gnb scroll */
-    $("#gnb > .menu > a").on("click",function(){
-        event.preventDefault();
+    /* nav scroll */
+    $("nav a").on("click",function(){
+        Event.preventDefault();
         var gnbId = $(this).attr("href");
         var gnbPos = $(gnbId).offset().top;
 
@@ -74,13 +77,11 @@ $(document).ready(function(){
 
     /* header effect */
     $(window).on("scroll",function(){
-        var pos = $("html").scrollTop() + 5;
-        var endingId = $("#ending").attr("href");
-        var endingPos = $(endingId).offset().top - 60;
-        var aboutId = $("#about").attr("href");
-        var aboutPos = $(aboutId).offset().top;
+        var pos = $("html").scrollTop();
+        var endingPos = $(".ending").offset().top - 70;
+        var aboutPos = $("#about").offset().top - 5;
 
-        if(pos > 750){
+        if(pos > 700){
             $("header").addClass("on");
         }else{
             $("header").removeClass("on");
@@ -88,16 +89,16 @@ $(document).ready(function(){
 
         if(pos >= endingPos){
             $("header").removeClass("on");
-            $(".logo > #logo-svg").addClass("on");
-            $("#gnb > li").addClass("on");
+            $(".logo > .logo-svg").addClass("on");
+            $("nav li").addClass("on");
         }else{
-            $(".logo > #logo-svg").removeClass("on");
-            $("#gnb > li").removeClass("on")
+            $(".logo > .logo-svg").removeClass("on");
+            $("nav li").removeClass("on")
         }
 
         if(pos >= aboutPos){
-            $(".logo > #logo-svg").removeClass("on");
-            $("#gnb > li").removeClass("on")
+            $(".logo > .logo-svg").removeClass("on");
+            $("nav li").removeClass("on")
         }
 
     });
@@ -105,15 +106,15 @@ $(document).ready(function(){
     /* home title effect */
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from(".home-title > span > span",{
+    gsap.from(".home-txt p",{
         scrollTrigger:{
-            trigger:"#home",
+            trigger:".home",
             markers:false,
             start:"-10 0",
             end:"bottom center",
             toggleActions:"play reverse play reverse"
         },
-        delay:3.1,
+        delay:3,
         y:100,
         stagger:0.2
     });
@@ -124,9 +125,9 @@ $(document).ready(function(){
 			left:"-150px"
 			},{
 			complete:function(){
-				var $clone = $(".scroll-down").first().clone();
+				var $clone = $(".scroll-txt-wrap p").first().clone();
 				$(".scroll-txt-wrap").append($clone);
-				$(".scroll-down").first().remove();
+				$(".scroll-txt-wrap p").first().remove();
 				$(".scroll-txt-wrap").css({"left":"0"});
 		},
 		duration:3000,
@@ -141,14 +142,14 @@ $(document).ready(function(){
 
     const endingEffect = gsap.timeline({
         scrollTrigger:{
-            trigger:"#ending",
+            trigger:".ending",
             markers:false,
             start:"0 40%",
             end:"120% 100%",
             toggleActions:"play reverse play reverse"
         }
     })
-    endingEffect.from(".ending-bg-txt > span",{
+    endingEffect.from(".ending > p",{
         scale:0,
         stagger:{
             each:0.2,
@@ -156,19 +157,20 @@ $(document).ready(function(){
         },
         ease:"back.out(1.9)"
     })
-    endingEffect.from(".ending-txt",{
-        y:20,
-        opacity:0,
-        ease:"ease"
-    },"0.5")
 
-    gsap.from(".ending-bg-txt > span",{
-        opacity:0.7,
+    gsap.from(".ending > p",{
+        opacity:0.5,
         duration:0.3,
         repeat:-1,
         yoyo:true,
         stagger:{each:0.2,from:"center"}
     })
+
+    endingEffect.from(".ending-txt",{
+        y:20,
+        opacity:0,
+        ease:"ease"
+    },"0.5")
 
     /* about id-card effect */
     gsap.from(".frame",{
