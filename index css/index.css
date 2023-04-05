@@ -29,13 +29,13 @@ a{
     height:20px;
     margin-left:-10px;
     margin-top:-10px;
+    border:1px solid #eee;
     border-radius:50%;
-    background-color:#eee;
-    transition:transform .2s ease;
-    transform-origin:center center;
+    mix-blend-mode: difference;
     pointer-events:none;
     z-index:1000;
-    mix-blend-mode: difference;
+    transition:transform .2s ease;
+    transform-origin:center center;
 }
 .grow{
     transform:scale(2.5);
@@ -101,7 +101,7 @@ a{
 
 /*------------------------------ header ------------------------------*/
 header{
-    width:calc(100%);
+    width:100%;
     height:70px;
     padding:15px 20px;
     position:fixed;
@@ -145,7 +145,6 @@ nav li{
     background-color:#eee;
     border:1px solid #393E46;
     border-radius:50px;
-    transition:background-color 0.5s;
 }
 nav li:hover{
     background-color:#393E46;
@@ -161,7 +160,6 @@ nav li a{
     color:#393E46;
     line-height:40px;
     padding:15px;
-    transition:color 0.5s;
 }
 nav li a:hover{
     color:#eee;
@@ -265,18 +263,28 @@ section.home{
 main{
     padding:0 20px;
     margin:150px 0;
+    color:#393E46;
 }
 main > section{
     width:100%;
     margin-bottom:120px;
 }
-main h2{
+.title{
+    display:flex;
+    flex-direction:column;
+    align-items:baseline;
+    margin-bottom:12px;
+}
+.title h2{
     font-size:4rem;
-    color:#393E46;
+}
+.title p{
+    font-size:1.1rem;
+    padding-left:3px;
 }
 .img-box{
     width:100%;
-    height:580px;
+    height:530px;
     overflow:hidden;
     position:relative;
 }
@@ -328,16 +336,17 @@ main > section:nth-child(5) .img{
     background-size:cover;
 }
 .caption-wrap{
-    height:143px;
     margin-top:13px;
     display:flex;
     flex-direction:column;
-    justify-content: space-between;
+}
+.caption-01{
+    margin-bottom:10px;
 }
 .caption-01 p{
     padding-left:3px;
     line-height:1.5;
-    font-size:18px;
+    font-size:1.2rem;
 }
 .caption-02 .tag{
     margin-top:2px;
@@ -350,7 +359,7 @@ main > section:nth-child(5) .img{
     border-radius:50px;
     padding:7px 15px;
     margin:0 8px 11px 0;
-    font-size:14px;
+    font-size:0.9rem;
 }
 .caption-02 .tag span:last-child{
     margin-right:0;
@@ -364,7 +373,7 @@ main > section:nth-child(5) .img{
 }
 .caption-02 button a{
     color:#eee;
-    font-size:14px;
+    font-size:0.9rem;
     padding:10px;
     transition:all 0.5s;
 }
@@ -391,9 +400,10 @@ main > section:nth-child(5) .img{
         display:inline;
     }
 }
-@media all and (min-width:1300px){
+@media all and (min-width:1200px){
     .caption-wrap{
         flex-flow:row;
+        justify-content:space-between;
     }
     .caption-02{
         text-align:right;
@@ -465,7 +475,7 @@ main > section:nth-child(5) .img{
 .idcard{
     width:530px;
     background-color:#fff;
-    border-radius:1rem;
+    border-radius:15px;
     box-shadow:2px 2px 8px rgba(0,0,0,0.5);
     text-align:center;
     position:relative;
@@ -476,7 +486,7 @@ main > section:nth-child(5) .img{
 }
 .idcard > h3{
     padding:15px 0;
-    border-radius:1rem 1rem 0 0;
+    border-radius:15px 15px 0 0;
     border-bottom:1px solid #000;
     background-color:#00ADB5;
     color:#fff;
@@ -504,7 +514,7 @@ main > section:nth-child(5) .img{
 .emoji{
     width:39%;
     height:210px;
-    border-radius:0.4rem;
+    border-radius:5px;
     border:1px solid #000;
     background-color:rgba(0,173,181,0.2);
     padding:10px 0;
@@ -522,7 +532,7 @@ main > section:nth-child(5) .img{
 .id-txt p:first-child{
     width:100%;
     padding:10px 7px;
-    border-radius:0.4rem;
+    border-radius:5px;
     border:1px solid #000;
     background-color:rgba(0,173,181,1);
     color:#fff;
