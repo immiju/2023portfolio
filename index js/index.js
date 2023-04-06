@@ -34,16 +34,18 @@ $(document).ready(function(){
     })
     
     /* Loading Page */
-    let loadingTl = gsap.timeline()
-        loadingTl.from(".logo-svg",{duration:1,opacity:0})
-        loadingTl.from(".intro-txt > span",{
-            opacity:0,
-            stagger:{each:0.5,from:"first"}
-            },"-=0.5")
-        loadingTl.to(".loading",{opacity:0},"+=0.5")
-        loadingTl.to(".loading",{display:"none"})
+    $(window).on("load",function(){
+        $(".loading").delay('2000').fadeOut();
+    });
 
-    /* logo effect */
+    let loadingTl = gsap.timeline()
+        loadingTl.to(".intro-txt > span",{
+            duration:0.3,
+            opacity:1,
+            stagger:{each:0.5,from:"first"}
+            })
+
+    /* header logo effect */
     $(".logo").on("click",function(){
         $("html").animate({
             scrollTop:"0px"
@@ -66,7 +68,7 @@ $(document).ready(function(){
 
     /* nav scroll */
     $("nav a").on("click",function(){
-        Event.preventDefault();
+        event.preventDefault();
         var gnbId = $(this).attr("href");
         var gnbPos = $(gnbId).offset().top;
 
@@ -104,19 +106,30 @@ $(document).ready(function(){
     });
     
     /* home title effect */
+    function animate() {
+        if (tween.isActive()) {
+            requestAnimationFrame(animate);
+        }}
+
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from(".home-txt p",{
-        scrollTrigger:{
-            trigger:".home",
-            markers:false,
-            start:"-10 0",
-            end:"bottom center",
-            toggleActions:"play reverse play reverse"
-        },
-        delay:3,
+    const tween = gsap.from(".home-txt p", {
+        delay:2,
         y:100,
         stagger:0.2
+    });
+
+    ScrollTrigger.create({
+        trigger:".home",
+        markers:false,
+        start:"center 0",
+        end:"bottom center",
+        onEnter: () => {
+            animate();
+        },
+        onLeaveBack: () => {
+            tween.restart();
+        }
     });
     
     /* home scroll txt roof */
